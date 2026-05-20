@@ -64,37 +64,37 @@ export default function Hero() {
         aria-hidden
       />
 
-      {/* ── Background gradient orbs ── */}
-      <motion.div
-        className="absolute pointer-events-none rounded-full"
-        style={{
-          width: 720,
-          height: 720,
-          background:
-            "radial-gradient(circle, rgba(139,38,53,0.26) 0%, transparent 70%)",
-          filter: "blur(90px)",
-          top: "-12%",
-          right: "-8%",
-          x: orb1X,
-          y: orb1Y,
-        }}
-        aria-hidden
-      />
-      <motion.div
-        className="absolute pointer-events-none rounded-full"
-        style={{
-          width: 420,
-          height: 420,
-          background:
-            "radial-gradient(circle, rgba(90,20,30,0.2) 0%, transparent 70%)",
-          filter: "blur(70px)",
-          bottom: "8%",
-          left: "20%",
-          x: orb2X,
-          y: orb2Y,
-        }}
-        aria-hidden
-      />
+      {/* ── Background gradient orbs — clipped so blur can't cause horizontal scroll ── */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden>
+        <motion.div
+          className="absolute rounded-full"
+          style={{
+            width: 600,
+            height: 600,
+            background:
+              "radial-gradient(circle, rgba(139,38,53,0.26) 0%, transparent 70%)",
+            filter: "blur(80px)",
+            top: "-10%",
+            right: "-5%",
+            x: orb1X,
+            y: orb1Y,
+          }}
+        />
+        <motion.div
+          className="absolute rounded-full"
+          style={{
+            width: 360,
+            height: 360,
+            background:
+              "radial-gradient(circle, rgba(90,20,30,0.2) 0%, transparent 70%)",
+            filter: "blur(60px)",
+            bottom: "10%",
+            left: "10%",
+            x: orb2X,
+            y: orb2Y,
+          }}
+        />
+      </div>
 
       {/* ── Top meta bar ── */}
       <div className="relative z-10 w-full max-w-[1440px] mx-auto px-12 max-sm:px-6 pt-24 md:pt-[140px]">

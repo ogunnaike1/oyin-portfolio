@@ -19,7 +19,7 @@ export default function Contact() {
           <h2
             className="reveal delay-1 font-serif font-light m-0"
             style={{
-              fontSize: "clamp(72px,14vw,220px)",
+              fontSize: "clamp(36px,10vw,220px)",
               lineHeight: 0.9,
               letterSpacing: "-0.03em",
             }}

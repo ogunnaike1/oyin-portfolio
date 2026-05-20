@@ -36,6 +36,7 @@ html,
 body {
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 html {
@@ -46,7 +47,6 @@ body {
   background: var(--bg);
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
   transition: background 0.8s var(--ease-long), color 0.8s var(--ease-long);
 }
 
@@ -148,10 +148,11 @@ body {
   }
 }
 
-/* ---------- BEFORE/AFTER META ---------- */
+/* ---------- SECTION PADDING MOBILE ---------- */
 @media (max-width: 640px) {
-  .ba-meta {
-    grid-template-columns: repeat(2, 1fr) !important;
+  section {
+    padding-top: 80px !important;
+    padding-bottom: 80px !important;
   }
 }
 

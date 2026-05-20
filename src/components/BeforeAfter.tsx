@@ -122,9 +122,10 @@ export default function BeforeAfter() {
         {/* Slider */}
         <div
           ref={wrapRef}
-          className="reveal relative border overflow-hidden cursor-ew-resize select-none min-h-60"
+          className="reveal relative border overflow-hidden cursor-ew-resize select-none"
           style={{
             aspectRatio: "16 / 8",
+            minHeight: "clamp(220px, 40vw, 9999px)",
             borderColor: "var(--line)",
           }}
           onMouseDown={(e) => { dragging.current = true; onMove(e.clientX); }}
@@ -193,12 +194,12 @@ export default function BeforeAfter() {
         </div>
 
         {/* Thumbs */}
-        <div className="reveal delay-1 flex gap-3 mt-6 flex-wrap">
+        <div className="reveal delay-1 grid grid-cols-2 sm:flex sm:flex-wrap gap-3 mt-6">
           {thumbs.map((t, i) => (
             <button
               key={i}
               onClick={() => selectThumb(i)}
-              className="relative w-[132px] border cursor-pointer transition-[border-color] duration-300"
+              className="relative sm:w-33 border cursor-pointer transition-[border-color] duration-300"
               style={{
                 aspectRatio: "16/9",
                 background: `repeating-linear-gradient(-30deg, color-mix(in oklab, var(--fg) 8%, transparent), color-mix(in oklab, var(--fg) 8%, transparent) 1px, transparent 1px, transparent 8px), var(--bg-2)`,
@@ -218,14 +219,11 @@ export default function BeforeAfter() {
 
         {/* Meta */}
         <div
-          className="ba-meta reveal delay-2 grid gap-5 mt-8 pt-6"
-          style={{
-            gridTemplateColumns: "repeat(4, 1fr)",
-            borderTop: "1px solid var(--line)",
-          }}
+          className="reveal delay-2 grid grid-cols-2 sm:grid-cols-4 gap-5 mt-8 pt-6"
+          style={{ borderTop: "1px solid var(--line)" }}
         >
           {[
-            { l: "Tools", v: "Premiere · DaVinci · AE" },
+            { l: "Tools", v: "CapCut · Premiere" },
             { l: "Avg. Turnaround", v: "72 hours" },
             { l: "Formats", v: "9:16 · 1:1 · 16:9" },
             { l: "Delivery", v: "Master + cutdowns" },
@@ -234,7 +232,7 @@ export default function BeforeAfter() {
               <div className="font-mono text-[10px] tracking-[.2em] uppercase mb-2" style={{ color: "var(--fg-dim)" }}>
                 {b.l}
               </div>
-              <div className="font-serif font-light text-[26px]">{b.v}</div>
+              <div className="font-serif font-light text-[22px] sm:text-[26px]">{b.v}</div>
             </div>
           ))}
         </div>

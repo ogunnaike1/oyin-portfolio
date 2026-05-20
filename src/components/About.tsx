@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useRef } from "react";
 
 function Counter({ target, decimals = 0 }: { target: number; decimals?: number }) {
@@ -89,19 +90,19 @@ export default function About() {
         <div className="grid grid-cols-[1fr_1.2fr] gap-20 items-start max-[900px]:grid-cols-1 max-[900px]:gap-12">
           {/* Portrait */}
           <div
-            className="reveal mask-reveal relative overflow-hidden border max-sm:max-h-80"
+            className="reveal mask-reveal relative overflow-hidden border"
             style={{
-              aspectRatio: "3/4",
-              background: `repeating-linear-gradient(45deg, color-mix(in oklab, var(--fg) 8%, transparent), color-mix(in oklab, var(--fg) 8%, transparent) 1px, transparent 1px, transparent 14px), var(--bg-2)`,
+              height: "clamp(420px, 60vw, 620px)",
               borderColor: "var(--line)",
             }}
           >
-            <div
-              className="absolute bottom-4 left-4 font-mono text-[10px] tracking-[.2em] uppercase z-10"
-              style={{ color: "var(--fg-dim)" }}
-            >
-              — PORTRAIT / 3:4 — DROP IMAGE
-            </div>
+            <Image
+              src="https://res.cloudinary.com/dhmqhless/image/upload/v1779307682/oyin2_kedavs.jpg"
+              alt="Oyindamola Amosu"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center top" }}
+              priority
+            />
             <div
               className="absolute inset-0 pointer-events-none"
               style={{

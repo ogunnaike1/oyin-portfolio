@@ -66,7 +66,7 @@ export default function Testimonials() {
 
       {/* Marquee */}
       <div
-        className="reveal overflow-hidden py-9"
+        className="overflow-hidden py-9"
         style={{
           borderTop: "1px solid var(--line)",
           borderBottom: "1px solid var(--line)",
