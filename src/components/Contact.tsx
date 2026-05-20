@@ -38,14 +38,15 @@ export default function Contact() {
           </h2>
 
           <a
-            href="mailto:hello@oyin.studio"
+            href="mailto:elizabethoyindamola1@gmail.com"
             className="reveal delay-2 inline-block font-serif italic relative pb-2 no-underline mt-14"
             style={{
-              fontSize: "clamp(28px,4vw,48px)",
+              fontSize: "clamp(14px,3.8vw,48px)",
               color: "var(--fg)",
+              wordBreak: "break-all",
             }}
           >
-            hello@oyin.studio
+            elizabethoyindamola1@gmail.com
             <span
               className="absolute left-0 right-0 bottom-0 h-px"
               style={{

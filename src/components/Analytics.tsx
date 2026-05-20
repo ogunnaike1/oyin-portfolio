@@ -99,7 +99,7 @@ export default function Analytics() {
           </p>
         </div>
 
-        <div className="grid gap-6" style={{ gridTemplateColumns: "repeat(12, 1fr)" }}>
+        <div className="analytics-grid grid gap-6" style={{ gridTemplateColumns: "repeat(12, 1fr)" }}>
           {/* Big card — reach */}
           <div
             className="ana-card reveal border relative overflow-hidden"
@@ -223,7 +223,7 @@ export default function Analytics() {
               {platforms.map((pl) => (
                 <div
                   key={pl.name}
-                  className="grid items-center gap-4"
+                  className="platform-row grid items-center gap-4"
                   style={{ gridTemplateColumns: "100px 1fr 70px" }}
                 >
                   <div className="font-serif italic text-[20px]">{pl.name}</div>

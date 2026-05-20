@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Manrope, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, Manrope, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -21,10 +21,16 @@ const jetbrains = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
-  title: "Oyin — Social Media Manager & Video Editor",
+  title: "Oyindamola Amosu — Social Media & Content Manager",
   description:
-    "A social media manager & video editor building brand worlds for founders, creatives and culture-led companies.",
+    "Social Media & Content Manager, Video Editor and Broadcaster based in Lagos. Growing audiences on Instagram and TikTok through short-form video and data-led content strategy.",
 };
 
 export default function RootLayout({
@@ -33,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" className={`${cormorant.variable} ${manrope.variable} ${jetbrains.variable}`}>
+    <html lang="en" data-theme="dark" className={`${cormorant.variable} ${manrope.variable} ${jetbrains.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );

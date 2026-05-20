@@ -7,14 +7,14 @@
 }
 
 html[data-theme="dark"] {
-  --bg: #0B0A09;
-  --bg-2: #131110;
+  --bg: #1A0A0D;
+  --bg-2: #260E13;
   --fg: #EFEAE0;
-  --fg-dim: #B7B0A2;
+  --fg-dim: #C4A8AC;
   --line: rgba(239,234,224,.14);
-  --accent: #5C1A1B;
-  --accent-2: #7A2425;
-  --chip-bg: rgba(239,234,224,.06);
+  --accent: #8B2635;
+  --accent-2: #A83040;
+  --chip-bg: rgba(139,38,53,.18);
 }
 
 html[data-theme="light"] {
@@ -113,6 +113,45 @@ body {
 @media (max-width: 900px) {
   .cases-grid article {
     grid-column: span 12 !important;
+  }
+}
+
+/* ---------- SERVICES ROW ---------- */
+.sr-grid {
+  display: grid;
+  grid-template-columns: 60px 1fr 1.2fr 80px;
+  gap: 32px;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .sr-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+    align-items: flex-start;
+  }
+  .sr-grid .sr-desc {
+    width: 100%;
+    order: 3;
+    margin-top: 4px;
+  }
+  .sr-grid .sr-arrow {
+    display: none;
+  }
+}
+
+/* ---------- ANALYTICS GRID ---------- */
+@media (max-width: 768px) {
+  .analytics-grid > div {
+    grid-column: span 12 !important;
+    aspect-ratio: auto !important;
+  }
+}
+
+/* ---------- BEFORE/AFTER META ---------- */
+@media (max-width: 640px) {
+  .ba-meta {
+    grid-template-columns: repeat(2, 1fr) !important;
   }
 }
 

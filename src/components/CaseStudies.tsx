@@ -112,7 +112,7 @@ export default function CaseStudies() {
                 (e.currentTarget as HTMLElement).style.borderColor = "var(--line)";
               }}
             >
-              <div className="flex justify-between items-center mb-7">
+              <div className="flex justify-between items-start gap-3 flex-wrap mb-7">
                 <div className="font-serif italic text-[20px]" style={{ color: "var(--fg)" }}>
                   {c.client}
                 </div>

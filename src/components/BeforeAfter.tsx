@@ -122,7 +122,7 @@ export default function BeforeAfter() {
         {/* Slider */}
         <div
           ref={wrapRef}
-          className="reveal relative border overflow-hidden cursor-ew-resize select-none"
+          className="reveal relative border overflow-hidden cursor-ew-resize select-none min-h-60"
           style={{
             aspectRatio: "16 / 8",
             borderColor: "var(--line)",
@@ -218,7 +218,7 @@ export default function BeforeAfter() {
 
         {/* Meta */}
         <div
-          className="reveal delay-2 grid gap-5 mt-8 pt-6"
+          className="ba-meta reveal delay-2 grid gap-5 mt-8 pt-6"
           style={{
             gridTemplateColumns: "repeat(4, 1fr)",
             borderTop: "1px solid var(--line)",

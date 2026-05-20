@@ -75,11 +75,10 @@ export default function ContentStrategy() {
         </div>
 
         <div
-          className="grid gap-[80px] items-start max-[900px]:grid-cols-1 max-[900px]:gap-8"
-          style={{ gridTemplateColumns: "1fr 1.4fr" }}
+          className="grid grid-cols-[1fr_1.4fr] gap-20 items-start max-[900px]:grid-cols-1 max-[900px]:gap-8"
         >
           {/* Sticky left */}
-          <div className="reveal" style={{ position: "sticky", top: 120 }}>
+          <div className="reveal sticky top-30 max-[900px]:static max-[900px]:top-auto">
             <div
               className="font-mono text-[11px] tracking-[.22em] uppercase"
               style={{ color: "var(--fg-dim)" }}

@@ -74,12 +74,8 @@ function ServiceRow({ idx, name, desc }: { idx: string; name: string[]; desc: st
     <div
       className="reveal group relative overflow-hidden cursor-pointer"
       style={{
-        display: "grid",
-        gridTemplateColumns: "60px 1fr 1.2fr 80px",
-        gap: "32px",
         padding: "32px 0",
         borderBottom: "1px solid var(--line)",
-        alignItems: "center",
         transition: "padding 0.5s cubic-bezier(.2,.7,.2,1)",
       }}
       onMouseEnter={(e) => {
@@ -111,27 +107,29 @@ function ServiceRow({ idx, name, desc }: { idx: string; name: string[]; desc: st
         }}
       />
 
-      <div className="relative z-10 font-mono text-[11px] tracking-[.2em]" style={{ color: "var(--fg-dim)" }}>
-        {idx}
-      </div>
-      <div
-        className="relative z-10 font-serif font-light leading-none"
-        style={{ fontSize: "clamp(28px,3.6vw,52px)", letterSpacing: "-0.01em" }}
-      >
-        {name[0]}
-        <em>{name[1]}</em>
-      </div>
-      <div className="relative z-10 text-[14px] leading-[1.55] max-w-[44ch]" style={{ color: "var(--fg-dim)" }}>
-        {desc}
-      </div>
-      <div
-        className="relative z-10 justify-self-end w-9 h-9 rounded-full border grid place-items-center text-[14px]"
-        style={{
-          borderColor: "var(--line)",
-          transition: "transform 0.5s cubic-bezier(.2,.7,.2,1)",
-        }}
-      >
-        ↗
+      <div className="sr-grid relative z-10">
+        <div className="font-mono text-[11px] tracking-[.2em]" style={{ color: "var(--fg-dim)" }}>
+          {idx}
+        </div>
+        <div
+          className="font-serif font-light leading-none"
+          style={{ fontSize: "clamp(28px,3.6vw,52px)", letterSpacing: "-0.01em" }}
+        >
+          {name[0]}
+          <em>{name[1]}</em>
+        </div>
+        <div className="sr-desc text-[14px] leading-[1.55] max-w-[44ch]" style={{ color: "var(--fg-dim)" }}>
+          {desc}
+        </div>
+        <div
+          className="sr-arrow justify-self-end w-9 h-9 rounded-full border grid place-items-center text-[14px]"
+          style={{
+            borderColor: "var(--line)",
+            transition: "transform 0.5s cubic-bezier(.2,.7,.2,1)",
+          }}
+        >
+          ↗
+        </div>
       </div>
     </div>
   );

@@ -101,7 +101,7 @@ export default function Testimonials() {
 
       {/* Cards */}
       <div className="w-full max-w-[1440px] mx-auto px-12 max-sm:px-6">
-        <div className="grid gap-6 mt-[90px] max-[900px]:grid-cols-1" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
+        <div className="grid grid-cols-3 gap-6 mt-24 max-[900px]:grid-cols-1">
           {cards.map((c, i) => (
             <div
               key={i}

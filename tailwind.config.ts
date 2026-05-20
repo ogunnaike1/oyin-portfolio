@@ -22,6 +22,7 @@ const config: Config = {
         serif: ["var(--font-cormorant)", "Times New Roman", "serif"],
         sans: ["var(--font-manrope)", "system-ui", "sans-serif"],
         mono: ["var(--font-jetbrains)", "ui-monospace", "monospace"],
+        display: ["var(--font-space)", "system-ui", "sans-serif"],
       },
       transitionTimingFunction: {
         "ease-custom": "cubic-bezier(.2,.7,.2,1)",
