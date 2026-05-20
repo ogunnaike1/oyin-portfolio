@@ -1,26 +1,122 @@
 @import "tailwindcss";
 
+/* ---------- THEME TOKENS ---------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ease: cubic-bezier(.2,.7,.2,1);
+  --ease-long: cubic-bezier(.16,1,.3,1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html[data-theme="dark"] {
+  --bg: #0B0A09;
+  --bg-2: #131110;
+  --fg: #EFEAE0;
+  --fg-dim: #B7B0A2;
+  --line: rgba(239,234,224,.14);
+  --accent: #5C1A1B;
+  --accent-2: #7A2425;
+  --chip-bg: rgba(239,234,224,.06);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[data-theme="light"] {
+  --bg: #EFEAE0;
+  --bg-2: #E6E0D2;
+  --fg: #0E0E0E;
+  --fg-dim: #4A463E;
+  --line: rgba(14,14,14,.14);
+  --accent: #0E0E0E;
+  --accent-2: #2A2722;
+  --chip-bg: rgba(14,14,14,.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  transition: background 0.8s var(--ease-long), color 0.8s var(--ease-long);
 }
+
+/* ---------- REVEAL ANIMATIONS ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1s var(--ease-long), transform 1s var(--ease-long);
+}
+.reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal.delay-1 { transition-delay: 0.08s; }
+.reveal.delay-2 { transition-delay: 0.16s; }
+.reveal.delay-3 { transition-delay: 0.24s; }
+.reveal.delay-4 { transition-delay: 0.32s; }
+
+/* Masked image reveal */
+.mask-reveal {
+  position: relative;
+  overflow: hidden;
+}
+.mask-reveal::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--bg);
+  transform-origin: right;
+  transition: transform 1.2s var(--ease-long);
+}
+.mask-reveal.in-view::after {
+  transform: scaleX(0);
+}
+
+/* Analytics bar animation */
+.ana-bars .bar {
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 1s var(--ease-long), opacity 0.4s;
+}
+.ana-card.in-view .ana-bars .bar {
+  transform: scaleY(1);
+}
+
+/* Platform bars */
+.pbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: var(--w, 0%);
+  background: var(--fg);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 1.2s var(--ease-long);
+}
+.ana-card.in-view .pbar::after {
+  transform: scaleX(1);
+}
+
+/* ---------- CASE STUDIES RESPONSIVE ---------- */
+@media (max-width: 900px) {
+  .cases-grid article {
+    grid-column: span 12 !important;
+  }
+}
+
+/* ---------- SCROLLBAR ---------- */
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
