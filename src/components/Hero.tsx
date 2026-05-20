@@ -307,7 +307,7 @@ export default function Hero() {
 
         {/* Right column — profile image */}
         <motion.div
-          className="col-span-12 md:col-span-5 flex justify-end items-end"
+          className="col-span-12 md:col-span-5 flex justify-center md:justify-end items-end"
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1.2, ease: EASE, delay: 0.85 }}
@@ -328,8 +328,8 @@ export default function Hero() {
             <figure
               className="relative overflow-hidden m-0"
               style={{
-                width: "clamp(240px, 26vw, 360px)",
-                height: "clamp(320px, 34vw, 470px)",
+                width: "clamp(280px, 80vw, 360px)",
+                height: "clamp(360px, 55vw, 470px)",
                 border: "1px solid var(--line)",
               }}
             >
@@ -337,6 +337,7 @@ export default function Hero() {
                 src={PROFILE_SRC}
                 alt="Oyin"
                 fill
+                sizes="(max-width: 768px) 80vw, 26vw"
                 style={{ objectFit: "cover", objectPosition: "center top" }}
                 priority
               />
@@ -355,7 +356,7 @@ export default function Hero() {
             {/* Image caption row */}
             <div
               className="mt-3 flex justify-between items-center"
-              style={{ width: "clamp(240px, 26vw, 360px)" }}
+              style={{ width: "clamp(280px, 80vw, 360px)" }}
             >
               <span
                 className="font-mono text-[10px] tracking-[.2em] uppercase"

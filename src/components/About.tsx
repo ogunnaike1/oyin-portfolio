@@ -90,7 +90,7 @@ export default function About() {
         <div className="grid grid-cols-[1fr_1.2fr] gap-20 items-start max-[900px]:grid-cols-1 max-[900px]:gap-12">
           {/* Portrait */}
           <div
-            className="reveal mask-reveal relative overflow-hidden border"
+            className="reveal relative overflow-hidden border"
             style={{
               height: "clamp(420px, 60vw, 620px)",
               borderColor: "var(--line)",
@@ -100,6 +100,7 @@ export default function About() {
               src="https://res.cloudinary.com/dhmqhless/image/upload/v1779307682/oyin2_kedavs.jpg"
               alt="Oyindamola Amosu"
               fill
+              sizes="(max-width: 900px) 90vw, 40vw"
               style={{ objectFit: "cover", objectPosition: "center top" }}
               priority
             />
