@@ -41,9 +41,17 @@ export default function Hero() {
           </h1>
 
           {/* Bio */}
-          <p className="text-[16px] leading-[1.65] max-w-[48ch] m-0" style={{ color: "var(--fg-dim)" }}>
-            I manage Instagram and TikTok accounts, create short-form video content, and use real platform data to improve results every month. Based in Lagos — focused on UK and diaspora audiences.
-          </p>
+          <div className="flex flex-col gap-4 max-w-[52ch]">
+            <p className="text-[16px] leading-[1.65] m-0" style={{ color: "var(--fg-dim)" }}>
+              I help brands and creators grow on Instagram and TikTok through content that connects with people.
+            </p>
+            <p className="text-[15px] leading-[1.7] m-0" style={{ color: "var(--fg-dim)" }}>
+              From content planning and scripting to editing, posting, and analytics, I manage the entire process. My background in live radio taught me how to communicate clearly and keep an audience engaged.
+            </p>
+            <p className="text-[15px] leading-[1.7] m-0" style={{ color: "var(--fg-dim)" }}>
+              I&apos;m highly detail-oriented and believe the small things matter. Every caption, edit, thumbnail, and post serves a purpose. I combine creativity with data to create content that not only looks good but performs.
+            </p>
+          </div>
 
           {/* CTAs */}
           <div className="flex flex-wrap gap-3 items-center">

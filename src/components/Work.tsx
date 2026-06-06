@@ -111,13 +111,17 @@ export default function Work() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Video 1 */}
-            <div className="reveal flex flex-col gap-3">
-              <div
-                className="relative overflow-hidden"
-                style={{ border: "1px solid var(--line)", borderRadius: "2px", background: "var(--bg-2)" }}
-              >
+            <div className="reveal flex flex-col gap-0" style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid var(--line-mid)", background: "var(--bg-2)", boxShadow: "0 4px 24px rgba(0,0,0,0.07)" }}>
+              <div className="relative" style={{ background: "#0a0a0a" }}>
+                {/* Header bar */}
+                <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#febc2e" }} />
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#27c840" }} />
+                  <span className="ml-auto font-mono text-[10px] tracking-[.14em]" style={{ color: "rgba(255,255,255,0.3)" }}>Short-Form Video</span>
+                </div>
                 <video
                   src="https://res.cloudinary.com/dhmqhless/video/upload/q_auto,f_mp4/v1780782523/vid1_nge1ii.mov"
                   controls
@@ -127,25 +131,30 @@ export default function Work() {
                   style={{ width: "100%", display: "block", maxHeight: "480px", objectFit: "cover" }}
                 />
               </div>
-              <div>
+              <div className="flex items-start justify-between gap-3 px-5 py-4">
+                <div>
+                  <p className="font-mono text-[11px] tracking-[.16em] uppercase m-0 mb-1" style={{ color: "var(--accent-2)" }}>TikTok Edit</p>
+                  <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>Edited for pacing, cuts, and hooks.</p>
+                </div>
                 <span
-                  className="inline-block font-mono text-[10px] tracking-[.16em] uppercase px-2 py-1 mb-2"
-                  style={{ background: "var(--chip-bg)", color: "var(--accent-2)", borderRadius: "2px" }}
+                  className="shrink-0 font-mono text-[10px] tracking-[.12em] uppercase px-2 py-1 mt-[2px]"
+                  style={{ background: "var(--chip-bg)", color: "var(--accent)", borderRadius: "2px", whiteSpace: "nowrap" }}
                 >
-                  Short-Form Video
+                  Edit
                 </span>
-                <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>
-                  Scripted, filmed, and edited from start to finish.
-                </p>
               </div>
             </div>
 
             {/* Video 2 */}
-            <div className="reveal delay-1 flex flex-col gap-3">
-              <div
-                className="relative overflow-hidden"
-                style={{ border: "1px solid var(--line)", borderRadius: "2px", background: "var(--bg-2)" }}
-              >
+            <div className="reveal delay-1 flex flex-col gap-0" style={{ borderRadius: "6px", overflow: "hidden", border: "1px solid var(--line-mid)", background: "var(--bg-2)", boxShadow: "0 4px 24px rgba(0,0,0,0.07)" }}>
+              <div className="relative" style={{ background: "#0a0a0a" }}>
+                {/* Header bar */}
+                <div className="flex items-center gap-2 px-4 py-3" style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#febc2e" }} />
+                  <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#27c840" }} />
+                  <span className="ml-auto font-mono text-[10px] tracking-[.14em]" style={{ color: "rgba(255,255,255,0.3)" }}>Instagram Reel</span>
+                </div>
                 <video
                   src="https://res.cloudinary.com/dhmqhless/video/upload/q_auto,f_mp4/v1780782523/vid2_pvjhfg.mov"
                   controls
@@ -155,16 +164,17 @@ export default function Work() {
                   style={{ width: "100%", display: "block", maxHeight: "480px", objectFit: "cover" }}
                 />
               </div>
-              <div>
+              <div className="flex items-start justify-between gap-3 px-5 py-4">
+                <div>
+                  <p className="font-mono text-[11px] tracking-[.16em] uppercase m-0 mb-1" style={{ color: "var(--accent-2)" }}>Instagram Edit</p>
+                  <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>Edited for pacing, cuts, and hooks.</p>
+                </div>
                 <span
-                  className="inline-block font-mono text-[10px] tracking-[.16em] uppercase px-2 py-1 mb-2"
-                  style={{ background: "var(--chip-bg)", color: "var(--accent-2)", borderRadius: "2px" }}
+                  className="shrink-0 font-mono text-[10px] tracking-[.12em] uppercase px-2 py-1 mt-[2px]"
+                  style={{ background: "var(--chip-bg)", color: "var(--accent)", borderRadius: "2px", whiteSpace: "nowrap" }}
                 >
-                  Instagram Reel
+                  Edit
                 </span>
-                <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>
-                  Scripted, filmed, and edited from start to finish.
-                </p>
               </div>
             </div>
           </div>
