@@ -46,7 +46,6 @@ const igStats = [
 const platforms = [
   { name: "Instagram", w: "88%", v: "88%" },
   { name: "TikTok",    w: "72%", v: "72%" },
-  { name: "YouTube",   w: "40%", v: "40%" },
 ];
 
 export default function Analytics() {

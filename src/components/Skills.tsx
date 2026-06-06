@@ -3,7 +3,7 @@
 const SKILL_GROUPS = [
   {
     category: "Platforms",
-    skills: ["Instagram", "TikTok", "YouTube"],
+    skills: ["Instagram", "TikTok"],
   },
   {
     category: "Video Editing",

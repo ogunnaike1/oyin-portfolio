@@ -28,7 +28,7 @@ export default function Hero() {
             className="self-start inline-flex items-center gap-2 px-4 py-2 font-mono text-[11px] tracking-[.2em] uppercase"
             style={{ border: "1px solid var(--line-mid)", color: "var(--accent-2)", borderRadius: "2px" }}
           >
-            Social Media Manager · Content Creator
+            Social Media Manager · Video Editor
           </div>
 
           {/* Headline */}

@@ -1,14 +1,14 @@
 "use client";
 
 const tiktop = [
-  { title: "Nigerian companies expanding into the UK", date: "11 May", views: "1,200", likes: 45 },
-  { title: "You don't need big money to build wealth", date: "19 Mar", views: "1,100", likes: 20 },
-  { title: "Your 20s aren't for being perfect with money", date: "15 Apr", views: "669", likes: 46 },
-  { title: "Bible money lessons that still work today", date: "10 Mar", views: "310", likes: 23 },
-  { title: "So landlords can't just tell you to leave", date: "04 May", views: "278", likes: 14 },
-  { title: "Everybody wants soft life…", date: "27 Apr", views: "267", likes: 21 },
-  { title: "Money is funny — if you don't control it", date: "01 May", views: "265", likes: 12 },
-  { title: "Airlines aren't just selling seats", date: "12 May", views: "220", likes: 6 },
+  { title: "Nigerian companies expanding into the UK", date: "11 May", views: "1,200" },
+  { title: "You don't need big money to build wealth", date: "19 Mar", views: "1,100" },
+  { title: "Your 20s aren't for being perfect with money", date: "15 Apr", views: "669" },
+  { title: "Bible money lessons that still work today", date: "10 Mar", views: "310" },
+  { title: "So landlords can't just tell you to leave", date: "04 May", views: "278" },
+  { title: "Everybody wants soft life…", date: "27 Apr", views: "267" },
+  { title: "Money is funny — if you don't control it", date: "01 May", views: "265" },
+  { title: "Airlines aren't just selling seats", date: "12 May", views: "220" },
 ];
 
 const instagram = [
@@ -53,16 +53,14 @@ export default function Work() {
               <thead>
                 <tr>
                   <th className="text-left font-mono text-[10px] tracking-[.16em] uppercase pb-3 pr-4" style={{ color: "var(--fg-mute)", fontWeight: 400 }}>Title</th>
-                  <th className="text-right font-mono text-[10px] tracking-[.16em] uppercase pb-3 pr-4" style={{ color: "var(--fg-mute)", fontWeight: 400 }}>Views</th>
-                  <th className="text-right font-mono text-[10px] tracking-[.16em] uppercase pb-3" style={{ color: "var(--fg-mute)", fontWeight: 400 }}>Likes</th>
+                  <th className="text-right font-mono text-[10px] tracking-[.16em] uppercase pb-3" style={{ color: "var(--fg-mute)", fontWeight: 400 }}>Views</th>
                 </tr>
               </thead>
               <tbody>
                 {tiktop.map((r, i) => (
                   <tr key={i} style={{ borderTop: "1px solid var(--line)" }}>
                     <td className="py-3 pr-4 leading-[1.4]" style={{ color: "var(--fg)" }}>{r.title}</td>
-                    <td className="py-3 pr-4 text-right font-mono text-[13px]" style={{ color: "var(--accent)" }}>{r.views}</td>
-                    <td className="py-3 text-right font-mono text-[13px]" style={{ color: "var(--fg-dim)" }}>{r.likes}</td>
+                    <td className="py-3 text-right font-mono text-[13px]" style={{ color: "var(--accent)" }}>{r.views}</td>
                   </tr>
                 ))}
               </tbody>
@@ -101,6 +99,73 @@ export default function Work() {
               style={{ background: "var(--bg-2)", border: "1px solid var(--line)", color: "var(--fg-dim)" }}
             >
               Over 81% of the TikTok audience falls in the <strong style={{ color: "var(--fg)" }}>25–44 age bracket</strong>. The UK and Nigeria together account for <strong style={{ color: "var(--fg)" }}>over 80% of viewers</strong> — a dual-market footprint suited to UK financial products and diaspora money perspectives.
+            </div>
+          </div>
+        </div>
+
+        {/* Content Samples */}
+        <div className="mt-16">
+          <div className="mb-8 pb-4" style={{ borderBottom: "1px solid var(--line-mid)" }}>
+            <p className="font-mono text-[11px] tracking-[.22em] uppercase m-0" style={{ color: "var(--accent-2)" }}>
+              Content Samples
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Video 1 */}
+            <div className="reveal flex flex-col gap-3">
+              <div
+                className="relative overflow-hidden"
+                style={{ border: "1px solid var(--line)", borderRadius: "2px", background: "var(--bg-2)" }}
+              >
+                <video
+                  src="https://res.cloudinary.com/dhmqhless/video/upload/q_auto,f_mp4/v1780782523/vid1_nge1ii.mov"
+                  controls
+                  playsInline
+                  muted
+                  preload="metadata"
+                  style={{ width: "100%", display: "block", maxHeight: "480px", objectFit: "cover" }}
+                />
+              </div>
+              <div>
+                <span
+                  className="inline-block font-mono text-[10px] tracking-[.16em] uppercase px-2 py-1 mb-2"
+                  style={{ background: "var(--chip-bg)", color: "var(--accent-2)", borderRadius: "2px" }}
+                >
+                  Short-Form Video
+                </span>
+                <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>
+                  Scripted, filmed, and edited from start to finish.
+                </p>
+              </div>
+            </div>
+
+            {/* Video 2 */}
+            <div className="reveal delay-1 flex flex-col gap-3">
+              <div
+                className="relative overflow-hidden"
+                style={{ border: "1px solid var(--line)", borderRadius: "2px", background: "var(--bg-2)" }}
+              >
+                <video
+                  src="https://res.cloudinary.com/dhmqhless/video/upload/q_auto,f_mp4/v1780782523/vid2_pvjhfg.mov"
+                  controls
+                  playsInline
+                  muted
+                  preload="metadata"
+                  style={{ width: "100%", display: "block", maxHeight: "480px", objectFit: "cover" }}
+                />
+              </div>
+              <div>
+                <span
+                  className="inline-block font-mono text-[10px] tracking-[.16em] uppercase px-2 py-1 mb-2"
+                  style={{ background: "var(--chip-bg)", color: "var(--accent-2)", borderRadius: "2px" }}
+                >
+                  Instagram Reel
+                </span>
+                <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>
+                  Scripted, filmed, and edited from start to finish.
+                </p>
+              </div>
             </div>
           </div>
         </div>
