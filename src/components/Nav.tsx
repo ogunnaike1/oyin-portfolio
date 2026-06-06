@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "@/hooks/useTheme";
 
-const LINKS = ["About", "Services", "Work", "Insights", "Contact"];
+const LINKS = ["About", "Skills", "Services", "Projects", "Testimonials", "Contact"];
 const EASE: [number, number, number, number] = [0.76, 0, 0.24, 1];
 
 export default function Nav() {
@@ -89,11 +89,11 @@ export default function Nav() {
             </button>
 
             <a
-              href="#contact"
+              href="https://wa.me/2349025158865" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full px-[18px] py-[9px] text-[12px] tracking-[.14em] uppercase no-underline hover:-translate-y-px transition-transform duration-300"
               style={{ background: "var(--fg)", color: "var(--bg)" }}
             >
-              Book a Call →
+              Let&apos;s Talk →
             </a>
           </div>
 
@@ -208,13 +208,13 @@ export default function Nav() {
                 Lagos, NG · MMXXVI
               </span>
               <a
-                href="#contact"
-                onClick={close}
-                className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[12px] tracking-[.14em] uppercase no-underline"
-                style={{ background: "var(--fg)", color: "var(--bg)" }}
-              >
-                Book a Call →
-              </a>
+                  href="https://wa.me/2349025158865" target="_blank" rel="noopener noreferrer"
+                  onClick={close}
+                  className="inline-flex items-center gap-2 rounded-full px-5 py-3 text-[12px] tracking-[.14em] uppercase no-underline"
+                  style={{ background: "var(--fg)", color: "var(--bg)" }}
+                >
+                  Let&apos;s Talk →
+                </a>
             </motion.div>
           </motion.div>
         )}

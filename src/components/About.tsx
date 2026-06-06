@@ -97,7 +97,7 @@ export default function About() {
             }}
           >
             <Image
-              src="https://res.cloudinary.com/dhmqhless/image/upload/v1779307682/oyin2_kedavs.jpg"
+              src="https://res.cloudinary.com/dhmqhless/image/upload/v1779306220/oyin-port_aueylu.jpg"
               alt="Oyindamola Amosu"
               fill
               sizes="(max-width: 900px) 90vw, 40vw"

@@ -44,7 +44,7 @@ const cases = [
 
 export default function CaseStudies() {
   return (
-    <section id="work" className="relative" style={{ padding: "140px 0" }}>
+    <section id="projects" className="relative" style={{ padding: "140px 0" }}>
       <div
         className="absolute font-serif italic font-light pointer-events-none z-0"
         style={{

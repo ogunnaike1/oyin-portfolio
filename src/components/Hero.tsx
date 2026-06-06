@@ -8,7 +8,7 @@ import {
 } from "framer-motion";
 
 const PROFILE_SRC =
-  "https://res.cloudinary.com/dhmqhless/image/upload/v1779306220/oyin-port_aueylu.jpg";
+  "https://res.cloudinary.com/dhmqhless/image/upload/v1780705271/oyin-porfolio1_zsgcrh.png";
 
 const EASE: [number, number, number, number] = [0.76, 0, 0.24, 1];
 
@@ -222,7 +222,7 @@ export default function Hero() {
           >
             {/* Primary */}
             <motion.a
-              href="#work"
+              href="#projects"
               className="relative overflow-hidden inline-flex items-center gap-3 px-8 py-[14px] cursor-pointer select-none"
               style={{ background: "var(--accent-2)" }}
               initial="rest"
@@ -261,6 +261,23 @@ export default function Hero() {
                   strokeLinejoin="round"
                 />
               </svg>
+            </motion.a>
+
+            {/* CV download */}
+            <motion.a
+              href="/Usman_Ogunnaike_CV%20(2)a.pdf"
+              download
+              className="relative overflow-hidden inline-flex items-center gap-3 px-8 py-[14px] border cursor-pointer select-none no-underline"
+              style={{ borderColor: "var(--line)" }}
+              whileHover={{ y: -1 }}
+              transition={{ duration: 0.2 }}
+            >
+              <span
+                className="font-mono text-[11px] tracking-[.22em] uppercase"
+                style={{ color: "var(--fg-dim)" }}
+              >
+                ↓ Download CV
+              </span>
             </motion.a>
 
             {/* Secondary — background-slide reveal */}

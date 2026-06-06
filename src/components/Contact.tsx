@@ -67,10 +67,11 @@ export default function Contact() {
           <div className="reveal delay-3 flex justify-center gap-9 flex-wrap mt-16">
             {[
               ["Instagram", "#"],
+              ["Twitter", "#"],
+              ["WhatsApp", "https://wa.me/2349025158865"],
               ["TikTok", "#"],
               ["YouTube", "#"],
               ["LinkedIn", "#"],
-              ["Read.cv", "#"],
             ].map(([label, href]) => (
               <a
                 key={label}
