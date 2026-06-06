@@ -1,12 +1,12 @@
 "use client";
 
 const socials = [
-  { label: "Instagram",  href: "#" },
-  { label: "Twitter",    href: "#" },
+  { label: "Instagram",  href: "https://www.instagram.com/zabeth__a" },
+  { label: "Twitter",    href: "https://x.com/zabeth__a" },
   { label: "WhatsApp",   href: "https://wa.me/2349025158865" },
-  { label: "TikTok",     href: "#" },
+  { label: "TikTok",     href: "https://www.tiktok.com/@zabeth___" },
   { label: "YouTube",    href: "#" },
-  { label: "LinkedIn",   href: "#" },
+  { label: "LinkedIn",   href: "https://www.linkedin.com/in/oyindamola-amosu-8a894a353" },
 ];
 
 export default function Contact() {
