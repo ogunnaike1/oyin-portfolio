@@ -13,16 +13,11 @@ const services = [
   },
   {
     idx: "03",
-    name: ["Long-Form ", "& Brand Films"],
-    desc: "Documentary cuts, founder films and YouTube essays. Story structure first, polish second.",
+    name: ["Content ", "Strategy"],
+    desc: "Positioning, pillars, channel mix, content calendars and a 90-day operating plan you can actually run.",
   },
   {
     idx: "04",
-    name: ["Content ", "Strategy"],
-    desc: "Positioning, pillars, channel mix, capture days and a 90-day operating plan you can actually run.",
-  },
-  {
-    idx: "05",
     name: ["Analytics ", "& Reporting"],
     desc: "Monthly insights with real conclusions — what worked, what didn't, what we're testing next.",
   },
@@ -35,7 +30,7 @@ export default function Services() {
         <div className="flex justify-between items-end mb-16 gap-10 flex-wrap">
           <div>
             <div className="reveal font-mono text-[11px] tracking-[.22em] uppercase" style={{ color: "var(--fg-dim)" }}>
-              § 03 — Services
+              § 04 — Services
             </div>
             <h2
               className="reveal delay-1 font-serif font-light mt-[18px] mb-0"
@@ -72,42 +67,16 @@ export default function Services() {
 function ServiceRow({ idx, name, desc }: { idx: string; name: string[]; desc: string }) {
   return (
     <div
-      className="reveal group relative overflow-hidden cursor-pointer"
+      className="reveal group cursor-pointer"
       style={{
         padding: "32px 0",
         borderBottom: "1px solid var(--line)",
-        transition: "padding 0.5s cubic-bezier(.2,.7,.2,1)",
+        transition: "padding-left 0.4s cubic-bezier(.16,1,.3,1)",
       }}
-      onMouseEnter={(e) => {
-        const el = e.currentTarget as HTMLDivElement;
-        el.style.paddingLeft = "18px";
-        el.style.color = "var(--bg)";
-      }}
-      onMouseLeave={(e) => {
-        const el = e.currentTarget as HTMLDivElement;
-        el.style.paddingLeft = "0";
-        el.style.color = "var(--fg)";
-      }}
+      onMouseEnter={(e) => { (e.currentTarget as HTMLDivElement).style.paddingLeft = "16px"; }}
+      onMouseLeave={(e) => { (e.currentTarget as HTMLDivElement).style.paddingLeft = "0"; }}
     >
-      {/* Invert fill */}
-      <div
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          background: "var(--fg)",
-          transform: "translateY(101%)",
-          transition: "transform 0.6s cubic-bezier(.16,1,.3,1)",
-        }}
-        ref={(el) => {
-          if (!el) return;
-          const parent = el.parentElement!;
-          const enter = () => (el.style.transform = "translateY(0)");
-          const leave = () => (el.style.transform = "translateY(101%)");
-          parent.addEventListener("mouseenter", enter);
-          parent.addEventListener("mouseleave", leave);
-        }}
-      />
-
-      <div className="sr-grid relative z-10">
+      <div className="sr-grid">
         <div className="font-mono text-[11px] tracking-[.2em]" style={{ color: "var(--fg-dim)" }}>
           {idx}
         </div>
@@ -115,18 +84,14 @@ function ServiceRow({ idx, name, desc }: { idx: string; name: string[]; desc: st
           className="font-serif font-light leading-none"
           style={{ fontSize: "clamp(28px,3.6vw,52px)", letterSpacing: "-0.01em" }}
         >
-          {name[0]}
-          <em>{name[1]}</em>
+          {name[0]}<em>{name[1]}</em>
         </div>
         <div className="sr-desc text-[14px] leading-[1.55] max-w-[44ch]" style={{ color: "var(--fg-dim)" }}>
           {desc}
         </div>
         <div
           className="sr-arrow justify-self-end w-9 h-9 rounded-full border grid place-items-center text-[14px]"
-          style={{
-            borderColor: "var(--line)",
-            transition: "transform 0.5s cubic-bezier(.2,.7,.2,1)",
-          }}
+          style={{ borderColor: "var(--line)" }}
         >
           ↗
         </div>

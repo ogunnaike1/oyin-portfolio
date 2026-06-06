@@ -1,162 +1,111 @@
 @import "tailwindcss";
 
-/* ---------- THEME TOKENS ---------- */
-:root {
-  --ease: cubic-bezier(.2,.7,.2,1);
-  --ease-long: cubic-bezier(.16,1,.3,1);
+:root,
+html[data-theme="light"] {
+  --bg:          #eeebf0;
+  --bg-2:        #ffffff;
+  --bg-soft:     #e6e2eb;
+  --fg:          #1a2233;
+  --fg-dim:      #4a5466;
+  --fg-mute:     #7a8295;
+  --accent:      #436580;
+  --accent-2:    #748fb0;
+  --accent-hi:   #94a9cc;
+  --line:        rgba(67,101,128,0.14);
+  --line-mid:    rgba(67,101,128,0.22);
+  --chip-bg:     rgba(116,143,176,0.12);
+  --ease:        cubic-bezier(.2,.7,.2,1);
+  --ease-long:   cubic-bezier(.16,1,.3,1);
 }
 
 html[data-theme="dark"] {
-  --bg: #1A0A0D;
-  --bg-2: #260E13;
-  --fg: #EFEAE0;
-  --fg-dim: #C4A8AC;
-  --line: rgba(239,234,224,.14);
-  --accent: #8B2635;
-  --accent-2: #A83040;
-  --chip-bg: rgba(139,38,53,.18);
+  --bg:          #0f1520;
+  --bg-2:        #16202e;
+  --bg-soft:     #1c2a3a;
+  --fg:          #e8edf5;
+  --fg-dim:      #94a9c4;
+  --fg-mute:     #5a7090;
+  --accent:      #748fb0;
+  --accent-2:    #94a9cc;
+  --accent-hi:   #c7d5e8;
+  --line:        rgba(116,143,176,0.14);
+  --line-mid:    rgba(116,143,176,0.24);
+  --chip-bg:     rgba(116,143,176,0.12);
+  --ease:        cubic-bezier(.2,.7,.2,1);
+  --ease-long:   cubic-bezier(.16,1,.3,1);
 }
 
-html[data-theme="light"] {
-  --bg: #EFEAE0;
-  --bg-2: #E6E0D2;
-  --fg: #0E0E0E;
-  --fg-dim: #4A463E;
-  --line: rgba(14,14,14,.14);
-  --accent: #0E0E0E;
-  --accent-2: #2A2722;
-  --chip-bg: rgba(14,14,14,.05);
-}
-
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 html,
-body {
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
+body { margin: 0; padding: 0; overflow-x: hidden; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--bg);
   color: var(--fg);
   -webkit-font-smoothing: antialiased;
-  transition: background 0.8s var(--ease-long), color 0.8s var(--ease-long);
+  transition: background 0.4s var(--ease-long), color 0.4s var(--ease-long);
 }
 
-/* ---------- REVEAL ANIMATIONS ---------- */
+/* ── Reveal ── */
 .reveal {
   opacity: 0;
-  transform: translateY(28px);
-  transition: opacity 1s var(--ease-long), transform 1s var(--ease-long);
+  transform: translateY(18px);
+  transition: opacity 0.6s var(--ease-long), transform 0.6s var(--ease-long);
 }
-.reveal.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-.reveal.delay-1 { transition-delay: 0.08s; }
-.reveal.delay-2 { transition-delay: 0.16s; }
-.reveal.delay-3 { transition-delay: 0.24s; }
-.reveal.delay-4 { transition-delay: 0.32s; }
+.reveal.in-view        { opacity: 1; transform: none; }
+.reveal.delay-1        { transition-delay: 0.10s; }
+.reveal.delay-2        { transition-delay: 0.20s; }
+.reveal.delay-3        { transition-delay: 0.30s; }
+.reveal.delay-4        { transition-delay: 0.40s; }
 
-/* Masked image reveal */
-.mask-reveal {
-  position: relative;
-  overflow: hidden;
-}
-.mask-reveal::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--bg);
-  transform-origin: right;
-  transition: transform 1.2s var(--ease-long);
-}
-.mask-reveal.in-view::after {
-  transform: scaleX(0);
-}
-
-/* Analytics bar animation */
-.ana-bars .bar {
-  transform-origin: bottom;
-  transform: scaleY(0);
-  transition: transform 1s var(--ease-long), opacity 0.4s;
-}
-.ana-card.in-view .ana-bars .bar {
-  transform: scaleY(1);
-}
-
-/* Platform bars */
+/* ── Platform bars ── */
 .pbar::after {
   content: "";
   position: absolute;
-  left: 0;
-  top: 0;
-  bottom: 0;
+  inset: 0;
   width: var(--w, 0%);
-  background: var(--fg);
+  background: var(--accent-2);
   transform-origin: left;
   transform: scaleX(0);
-  transition: transform 1.2s var(--ease-long);
+  transition: transform 1.1s var(--ease-long);
 }
-.ana-card.in-view .pbar::after {
-  transform: scaleX(1);
+.ana-card.in-view .pbar::after { transform: scaleX(1); }
+
+/* ── Analytics bar chart ── */
+.ana-bars .bar {
+  transform-origin: bottom;
+  transform: scaleY(0);
+  transition: transform 1s var(--ease-long);
+}
+.ana-card.in-view .ana-bars .bar { transform: scaleY(1); }
+
+/* ── Analytics grid responsive ── */
+@media (max-width: 768px) {
+  .analytics-grid > div { grid-column: span 12 !important; aspect-ratio: auto !important; }
 }
 
-/* ---------- CASE STUDIES RESPONSIVE ---------- */
-@media (max-width: 900px) {
-  .cases-grid article {
-    grid-column: span 12 !important;
-  }
-}
-
-/* ---------- SERVICES ROW ---------- */
+/* ── Services row ── */
 .sr-grid {
   display: grid;
-  grid-template-columns: 60px 1fr 1.2fr 80px;
-  gap: 32px;
+  grid-template-columns: 52px 1fr 1.2fr 56px;
+  gap: 28px;
   align-items: center;
 }
 @media (max-width: 640px) {
-  .sr-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px 16px;
-    align-items: flex-start;
-  }
-  .sr-grid .sr-desc {
-    width: 100%;
-    order: 3;
-    margin-top: 4px;
-  }
-  .sr-grid .sr-arrow {
-    display: none;
-  }
+  .sr-grid                  { display: flex; flex-wrap: wrap; gap: 6px 14px; }
+  .sr-grid .sr-desc         { width: 100%; order: 3; margin-top: 4px; }
+  .sr-grid .sr-arrow        { display: none; }
 }
 
-/* ---------- ANALYTICS GRID ---------- */
-@media (max-width: 768px) {
-  .analytics-grid > div {
-    grid-column: span 12 !important;
-    aspect-ratio: auto !important;
-  }
-}
-
-/* ---------- SECTION PADDING MOBILE ---------- */
+/* ── Mobile sections ── */
 @media (max-width: 640px) {
-  section {
-    padding-top: 80px !important;
-    padding-bottom: 80px !important;
-  }
+  section { padding-top: 64px !important; padding-bottom: 64px !important; }
 }
 
-/* ---------- SCROLLBAR ---------- */
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--line); border-radius: 2px; }
+/* ── Scrollbar ── */
+::-webkit-scrollbar              { width: 4px; }
+::-webkit-scrollbar-track        { background: var(--bg); }
+::-webkit-scrollbar-thumb        { background: var(--accent-2); opacity: .4; border-radius: 2px; }

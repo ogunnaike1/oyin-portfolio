@@ -223,7 +223,7 @@ export default function BeforeAfter() {
           style={{ borderTop: "1px solid var(--line)" }}
         >
           {[
-            { l: "Tools", v: "CapCut · Premiere" },
+            { l: "Tools", v: "CapCut" },
             { l: "Avg. Turnaround", v: "72 hours" },
             { l: "Formats", v: "9:16 · 1:1 · 16:9" },
             { l: "Delivery", v: "Master + cutdowns" },

@@ -39,7 +39,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="dark" className={`${cormorant.variable} ${manrope.variable} ${jetbrains.variable} ${spaceGrotesk.variable}`}>
+    <html lang="en" data-theme="light" className={`${cormorant.variable} ${manrope.variable} ${jetbrains.variable} ${spaceGrotesk.variable}`}>
       <body className="font-sans">{children}</body>
     </html>
   );

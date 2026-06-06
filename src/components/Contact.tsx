@@ -1,105 +1,118 @@
 "use client";
 
+const socials = [
+  { label: "Instagram",  href: "#" },
+  { label: "Twitter",    href: "#" },
+  { label: "WhatsApp",   href: "https://wa.me/2349025158865" },
+  { label: "TikTok",     href: "#" },
+  { label: "YouTube",    href: "#" },
+  { label: "LinkedIn",   href: "#" },
+];
+
 export default function Contact() {
   return (
     <>
       <section
         id="contact"
-        className="relative text-center overflow-hidden"
-        style={{ padding: "180px 0 80px" }}
+        style={{ padding: "100px 0", background: "var(--accent)" }}
       >
-        <div className="w-full max-w-[1440px] mx-auto px-12 max-sm:px-6">
-          <span
-            className="reveal block font-mono text-[11px] tracking-[.22em] uppercase mb-10"
-            style={{ color: "var(--fg-dim)" }}
-          >
-            § 09 — Contact · Booking Q3 / Q4 2026
-          </span>
-
-          <h2
-            className="reveal delay-1 font-serif font-light m-0"
-            style={{
-              fontSize: "clamp(36px,10vw,220px)",
-              lineHeight: 0.9,
-              letterSpacing: "-0.03em",
-            }}
-          >
-            <span>Let&apos;s make</span>
-            <br />
-            <em>something</em>
-            <br />
-            <span>
-              worth{" "}
-              <span className="italic" style={{ color: "var(--accent)" }}>
-                &amp;
-              </span>{" "}
-              watching.
-            </span>
-          </h2>
-
-          <a
-            href="mailto:elizabethoyindamola1@gmail.com"
-            className="reveal delay-2 inline-block font-serif italic relative pb-2 no-underline mt-14"
-            style={{
-              fontSize: "clamp(14px,3.8vw,48px)",
-              color: "var(--fg)",
-              wordBreak: "break-all",
-            }}
-          >
-            elizabethoyindamola1@gmail.com
-            <span
-              className="absolute left-0 right-0 bottom-0 h-px"
-              style={{
-                background: "var(--fg)",
-                transform: "scaleX(0)",
-                transformOrigin: "left",
-                transition: "transform 0.6s cubic-bezier(.16,1,.3,1)",
-              }}
-              ref={(el) => {
-                if (!el) return;
-                const parent = el.parentElement!;
-                parent.addEventListener("mouseenter", () => (el.style.transform = "scaleX(1)"));
-                parent.addEventListener("mouseleave", () => (el.style.transform = "scaleX(0)"));
-              }}
-            />
-          </a>
-
-          <div className="reveal delay-3 flex justify-center gap-9 flex-wrap mt-16">
-            {[
-              ["Instagram", "#"],
-              ["Twitter", "#"],
-              ["WhatsApp", "https://wa.me/2349025158865"],
-              ["TikTok", "#"],
-              ["YouTube", "#"],
-              ["LinkedIn", "#"],
-            ].map(([label, href]) => (
-              <a
-                key={label}
-                href={href}
-                className="no-underline font-mono text-[12px] tracking-[.2em] uppercase transition-colors duration-300"
-                style={{ color: "var(--fg-dim)" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "var(--fg)")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "var(--fg-dim)")}
+        <div className="w-full max-w-[1200px] mx-auto px-8 max-sm:px-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left */}
+            <div>
+              <p className="reveal font-mono text-[11px] tracking-[.22em] uppercase mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
+                Let&apos;s Talk
+              </p>
+              <h2
+                className="reveal delay-1 font-serif font-light m-0 mb-4"
+                style={{ fontSize: "clamp(32px,5vw,64px)", lineHeight: 1.05, letterSpacing: "-0.02em", color: "#fff" }}
               >
-                {label} ↗
+                Available for new
+                <br />
+                clients <em>&amp; opportunities</em>
+              </h2>
+              <p className="reveal delay-2 text-[15px] leading-[1.65] mb-0 max-w-[44ch]" style={{ color: "rgba(255,255,255,0.75)" }}>
+                Whether you need someone to manage your social media, create content, or interpret your analytics — reach out.
+              </p>
+            </div>
+
+            {/* Right — contact details */}
+            <div className="reveal delay-2 flex flex-col gap-4">
+              <a
+                href="mailto:elizabethoyindamola1@gmail.com"
+                className="flex items-center gap-4 p-5 no-underline group"
+                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.2)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)"; }}
+              >
+                <span className="font-mono text-[11px] tracking-[.16em] uppercase shrink-0" style={{ color: "rgba(255,255,255,0.55)" }}>
+                  Email
+                </span>
+                <span className="font-mono text-[13px] tracking-[.06em]" style={{ color: "#fff" }}>
+                  elizabethoyindamola1@gmail.com
+                </span>
               </a>
-            ))}
+
+              <a
+                href="https://wa.me/2349025158865"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-5 no-underline"
+                style={{ background: "rgba(255,255,255,0.12)", border: "1px solid rgba(255,255,255,0.2)" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.2)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.12)"; }}
+              >
+                <span className="font-mono text-[11px] tracking-[.16em] uppercase shrink-0" style={{ color: "rgba(255,255,255,0.55)" }}>
+                  WhatsApp
+                </span>
+                <span className="font-mono text-[13px] tracking-[.06em]" style={{ color: "#fff" }}>
+                  +234 902 515 8865
+                </span>
+              </a>
+
+              <div
+                className="flex items-center gap-4 p-5"
+                style={{ background: "rgba(255,255,255,0.08)", border: "1px solid rgba(255,255,255,0.14)" }}
+              >
+                <span className="font-mono text-[11px] tracking-[.16em] uppercase shrink-0" style={{ color: "rgba(255,255,255,0.55)" }}>
+                  Location
+                </span>
+                <span className="font-mono text-[13px] tracking-[.06em]" style={{ color: "#fff" }}>
+                  Lagos, Nigeria
+                </span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <footer
-        className="font-mono text-[11px] tracking-[.18em] uppercase"
-        style={{
-          borderTop: "1px solid var(--line)",
-          padding: "28px 0",
-          color: "var(--fg-dim)",
-        }}
-      >
-        <div className="w-full max-w-[1440px] mx-auto px-12 max-sm:px-6 flex justify-between gap-6 flex-wrap">
-          <div>© MMXXVI — Oyin Studio</div>
-          <div>Designed &amp; built in Lagos, NG</div>
-          <div>Last updated · May 2026</div>
+      {/* Footer */}
+      <footer style={{ background: "var(--accent)", borderTop: "1px solid rgba(255,255,255,0.12)", padding: "32px 0" }}>
+        <div className="w-full max-w-[1200px] mx-auto px-8 max-sm:px-5">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-6">
+            {/* Social links */}
+            <div className="flex flex-wrap gap-5">
+              {socials.map(({ label, href }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="font-mono text-[11px] tracking-[.18em] uppercase no-underline transition-colors duration-200"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "#fff")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
+                >
+                  {label} ↗
+                </a>
+              ))}
+            </div>
+
+            {/* Copyright */}
+            <div className="font-mono text-[11px] tracking-[.14em]" style={{ color: "rgba(255,255,255,0.4)" }}>
+              © MMXXVI — Oyindamola Amosu
+            </div>
+          </div>
         </div>
       </footer>
     </>

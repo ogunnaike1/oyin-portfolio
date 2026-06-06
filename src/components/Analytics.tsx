@@ -1,271 +1,167 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-function useAnalyticsReveal(ref: React.RefObject<HTMLElement | null>) {
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in-view");
-            io.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.25 }
-    );
-
-    el.querySelectorAll<HTMLElement>(".ana-card").forEach((card) => io.observe(card));
-    return () => io.disconnect();
-  }, [ref]);
-}
-
 function useCounter(selector: string, container: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     const parent = container.current;
     if (!parent) return;
-
-    const counterIO = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (!e.isIntersecting) return;
-          const el = e.target as HTMLElement;
-          const target = parseFloat(el.dataset.counter!);
-          const decimals = parseInt(el.dataset.decimals ?? "0", 10);
-          const dur = 1600;
-          const start = performance.now();
-          function step(now: number) {
-            const p = Math.min(1, (now - start) / dur);
-            const eased = 1 - Math.pow(1 - p, 3);
-            el.textContent = (eased * target).toFixed(decimals);
-            if (p < 1) requestAnimationFrame(step);
-          }
-          requestAnimationFrame(step);
-          counterIO.unobserve(e.target);
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    parent.querySelectorAll<HTMLElement>(selector).forEach((el) => counterIO.observe(el));
-    return () => counterIO.disconnect();
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const el = e.target as HTMLElement;
+        const target  = parseFloat(el.dataset.counter!);
+        const decimals = parseInt(el.dataset.decimals ?? "0", 10);
+        const dur = 1400;
+        const start = performance.now();
+        function step(now: number) {
+          const p = Math.min(1, (now - start) / dur);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = (eased * target).toFixed(decimals);
+          if (p < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.4 });
+    parent.querySelectorAll<HTMLElement>(selector).forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, [selector, container]);
 }
 
-const bars = [22, 34, 28, 46, 38, 52, 60, 48, 92, 70, 58, 64];
+const tiktokStats = [
+  { value: "7817",   decimals: "0", label: "Video Views",       change: "+265.6%" },
+  { value: "5824",   decimals: "0", label: "Reached Audience",  change: "+190.2%" },
+  { value: "847",    decimals: "0", label: "Engaged Audience",  change: "+257.4%" },
+  { value: "308",    decimals: "0", label: "Total Likes",       change: "+600%"   },
+  { value: "47",     decimals: "0", label: "New Followers",     change: "+235.7%" },
+];
+
+const igStats = [
+  { value: "3495",   decimals: "0", label: "Total Views",       change: "—"       },
+  { value: "707",    decimals: "0", label: "Accounts Reached",  change: "+128.8%" },
+  { value: "142",    decimals: "0", label: "Total Interactions",change: "—"       },
+  { value: "73",     decimals: "0", label: "Profile Visits",    change: "+55.3%"  },
+];
 
 const platforms = [
   { name: "Instagram", w: "88%", v: "88%" },
-  { name: "TikTok", w: "72%", v: "72%" },
-  { name: "YouTube", w: "54%", v: "54%" },
-  { name: "LinkedIn", w: "36%", v: "36%" },
+  { name: "TikTok",    w: "72%", v: "72%" },
+  { name: "YouTube",   w: "40%", v: "40%" },
 ];
 
 export default function Analytics() {
-  const sectionRef = useRef<HTMLElement>(null);
-  useAnalyticsReveal(sectionRef as React.RefObject<HTMLElement | null>);
-  useCounter("[data-counter]", sectionRef as React.RefObject<HTMLElement | null>);
+  const ref = useRef<HTMLElement>(null);
+  useCounter("[data-counter]", ref as React.RefObject<HTMLElement | null>);
 
   return (
-    <section id="insights" className="relative" style={{ padding: "140px 0" }} ref={sectionRef}>
-      <div className="w-full max-w-[1440px] mx-auto px-12 max-sm:px-6">
-        <div className="flex justify-between items-end mb-16 gap-10 flex-wrap">
-          <div>
-            <div className="reveal font-mono text-[11px] tracking-[.22em] uppercase" style={{ color: "var(--fg-dim)" }}>
-              § 07 — Analytics
-            </div>
-            <h2
-              className="reveal delay-1 font-serif font-light mt-[18px] mb-0"
-              style={{
-                fontSize: "clamp(40px,6vw,88px)",
-                lineHeight: 1,
-                letterSpacing: "-0.02em",
-                maxWidth: "14ch",
-              }}
-            >
-              Numbers,
-              <br />
-              with <em>conclusions</em>.
-            </h2>
-          </div>
-          <p
-            className="reveal delay-2 max-w-[380px] text-[15px] leading-[1.6]"
-            style={{ color: "var(--fg-dim)" }}
+    <section id="insights" ref={ref} style={{ padding: "100px 0", background: "var(--bg)" }}>
+      <div className="w-full max-w-[1200px] mx-auto px-8 max-sm:px-5">
+        {/* Header */}
+        <div className="mb-12">
+          <p className="reveal font-mono text-[11px] tracking-[.22em] uppercase mb-3" style={{ color: "var(--accent-2)" }}>
+            Platform Analytics
+          </p>
+          <h2
+            className="reveal delay-1 font-serif font-light m-0"
+            style={{ fontSize: "clamp(32px,5vw,60px)", lineHeight: 1.1, letterSpacing: "-0.02em", color: "var(--fg)" }}
           >
-            A representative quarter across active clients. Reporting goes deeper — what you see here is the headline.
+            Full performance <em>breakdown</em>
+          </h2>
+          <p className="reveal delay-2 mt-4 text-[15px] leading-[1.6] max-w-[52ch]" style={{ color: "var(--fg-dim)" }}>
+            Real numbers from platform data — no estimates. Reporting period: March – May 2026.
           </p>
         </div>
 
-        <div className="analytics-grid grid gap-6" style={{ gridTemplateColumns: "repeat(12, 1fr)" }}>
-          {/* Big card — reach */}
+        {/* Two-platform grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          {/* TikTok */}
           <div
-            className="ana-card reveal border relative overflow-hidden"
-            style={{
-              gridColumn: "span 6",
-              aspectRatio: "16/11",
-              padding: "32px",
-              background: "var(--bg-2)",
-              borderColor: "var(--line)",
-            }}
+            className="reveal p-7"
+            style={{ background: "var(--bg-2)", border: "1px solid var(--line)" }}
           >
-            <div className="font-mono text-[11px] tracking-[.2em] uppercase" style={{ color: "var(--fg-dim)" }}>
-              Total Reach · Q1 2026
+            <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: "1px solid var(--line)" }}>
+              <span className="font-mono text-[12px] tracking-[.18em] uppercase font-medium" style={{ color: "var(--fg)" }}>TikTok</span>
+              <span className="font-mono text-[10px]" style={{ color: "var(--fg-mute)" }}>Mar 1 – May 23, 2026</span>
             </div>
-            <div
-              className="font-serif font-light mt-6"
-              style={{
-                fontSize: "clamp(48px,7vw,108px)",
-                lineHeight: 0.95,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              <span data-counter="14.8" data-decimals="1">0.0</span>
-              <span className="italic text-[.55em]" style={{ color: "var(--accent)" }}>M</span>
-            </div>
-            <p className="text-[13px] mt-4 max-w-[32ch]" style={{ color: "var(--fg-dim)" }}>
-              Aggregated organic reach across managed accounts. 68% short-form video; 22% carousels; 10% stills.
-            </p>
-
-            {/* Chart */}
-            <div className="absolute bottom-0 left-0 right-0 h-[60%] pointer-events-none opacity-90">
-              <div className="ana-bars flex gap-[6px] items-end h-full px-8 pb-8">
-                {bars.map((h, i) => (
+            <div className="grid grid-cols-2 gap-6">
+              {tiktokStats.map((s) => (
+                <div key={s.label}>
                   <div
-                    key={i}
-                    className={`bar flex-1 rounded-t-[1px]${h === 92 ? " peak" : ""}`}
-                    style={{
-                      height: `${h}%`,
-                      background: h === 92 ? "var(--accent)" : "var(--fg)",
-                      opacity: h === 92 ? 0.9 : 0.14,
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Engagement */}
-          <div
-            className="ana-card reveal delay-1 border"
-            style={{
-              gridColumn: "span 3",
-              aspectRatio: "1",
-              padding: "32px",
-              background: "var(--bg-2)",
-              borderColor: "var(--line)",
-            }}
-          >
-            <div className="font-mono text-[11px] tracking-[.2em] uppercase" style={{ color: "var(--fg-dim)" }}>
-              Engagement
-            </div>
-            <div
-              className="font-serif font-light mt-6"
-              style={{
-                fontSize: "clamp(40px,5vw,72px)",
-                lineHeight: 0.95,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              <span data-counter="7.2" data-decimals="1">0.0</span>
-              <span className="italic text-[.55em]" style={{ color: "var(--accent)" }}>%</span>
-            </div>
-            <p className="text-[13px] mt-4" style={{ color: "var(--fg-dim)" }}>
-              Avg. across feed + reels. Industry median sits at 1.4%.
-            </p>
-          </div>
-
-          {/* Saves */}
-          <div
-            className="ana-card reveal delay-2 border"
-            style={{
-              gridColumn: "span 3",
-              aspectRatio: "1",
-              padding: "32px",
-              background: "var(--bg-2)",
-              borderColor: "var(--line)",
-            }}
-          >
-            <div className="font-mono text-[11px] tracking-[.2em] uppercase" style={{ color: "var(--fg-dim)" }}>
-              Saves / 1k
-            </div>
-            <div
-              className="font-serif font-light mt-6"
-              style={{
-                fontSize: "clamp(40px,5vw,72px)",
-                lineHeight: 0.95,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              <span data-counter="84">0</span>
-            </div>
-            <p className="text-[13px] mt-4" style={{ color: "var(--fg-dim)" }}>
-              A truer signal of brand fit than likes — what we optimise to.
-            </p>
-          </div>
-
-          {/* Platform mix */}
-          <div
-            className="ana-card reveal border"
-            style={{
-              gridColumn: "span 6",
-              padding: "32px",
-              background: "var(--bg-2)",
-              borderColor: "var(--line)",
-            }}
-          >
-            <div className="font-mono text-[11px] tracking-[.2em] uppercase" style={{ color: "var(--fg-dim)" }}>
-              Platform Mix
-            </div>
-            <div className="flex flex-col gap-[18px] mt-7">
-              {platforms.map((pl) => (
-                <div
-                  key={pl.name}
-                  className="platform-row grid items-center gap-4"
-                  style={{ gridTemplateColumns: "100px 1fr 70px" }}
-                >
-                  <div className="font-serif italic text-[20px]">{pl.name}</div>
-                  <div className="pbar relative h-[2px]" style={{ background: "var(--line)", ["--w" as string]: pl.w }} />
-                  <div
-                    className="font-mono text-[11px] tracking-[.14em] text-right"
-                    style={{ color: "var(--fg-dim)" }}
+                    className="font-serif font-light"
+                    style={{ fontSize: "clamp(28px,4vw,44px)", lineHeight: 1, letterSpacing: "-0.02em", color: "var(--fg)" }}
                   >
-                    {pl.v}
+                    <span data-counter={s.value} data-decimals={s.decimals}>0</span>
+                  </div>
+                  <div className="font-mono text-[10px] tracking-[.14em] mt-1" style={{ color: "var(--accent)", fontVariantNumeric: "tabular-nums" }}>
+                    {s.change}
+                  </div>
+                  <div className="font-mono text-[10px] tracking-[.14em] uppercase mt-[2px]" style={{ color: "var(--fg-mute)" }}>
+                    {s.label}
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Top format */}
+          {/* Instagram */}
           <div
-            className="ana-card reveal delay-1 border"
-            style={{
-              gridColumn: "span 6",
-              padding: "32px",
-              background: "var(--bg-2)",
-              borderColor: "var(--line)",
-            }}
+            className="reveal delay-1 p-7"
+            style={{ background: "var(--bg-2)", border: "1px solid var(--line)" }}
           >
-            <div className="font-mono text-[11px] tracking-[.2em] uppercase" style={{ color: "var(--fg-dim)" }}>
-              Top Performing Format
+            <div className="flex items-center justify-between mb-6 pb-4" style={{ borderBottom: "1px solid var(--line)" }}>
+              <span className="font-mono text-[12px] tracking-[.18em] uppercase font-medium" style={{ color: "var(--fg)" }}>Instagram</span>
+              <span className="font-mono text-[10px]" style={{ color: "var(--fg-mute)" }}>Feb 28 – May 28, 2026</span>
             </div>
-            <div
-              className="font-serif font-light italic mt-6"
-              style={{
-                fontSize: "clamp(36px,4vw,60px)",
-                lineHeight: 0.95,
-                letterSpacing: "-0.03em",
-              }}
-            >
-              Founder-led
-              <br />
-              Reels, 22–34s.
+            <div className="grid grid-cols-2 gap-6">
+              {igStats.map((s) => (
+                <div key={s.label}>
+                  <div
+                    className="font-serif font-light"
+                    style={{ fontSize: "clamp(28px,4vw,44px)", lineHeight: 1, letterSpacing: "-0.02em", color: "var(--fg)" }}
+                  >
+                    <span data-counter={s.value} data-decimals={s.decimals}>0</span>
+                  </div>
+                  <div className="font-mono text-[10px] tracking-[.14em] mt-1" style={{ color: "var(--accent)" }}>
+                    {s.change}
+                  </div>
+                  <div className="font-mono text-[10px] tracking-[.14em] uppercase mt-[2px]" style={{ color: "var(--fg-mute)" }}>
+                    {s.label}
+                  </div>
+                </div>
+              ))}
             </div>
-            <p className="text-[13px] mt-4 max-w-[32ch]" style={{ color: "var(--fg-dim)" }}>
-              Tight talking-head into b-roll into pay-off frame. Holds 68% retention to end-card.
+          </div>
+        </div>
+
+        {/* Platform mix + key insight */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div
+            className="ana-card reveal p-7"
+            style={{ background: "var(--bg-2)", border: "1px solid var(--line)" }}
+          >
+            <div className="font-mono text-[11px] tracking-[.18em] uppercase mb-6" style={{ color: "var(--fg-mute)" }}>
+              Platform Focus
+            </div>
+            <div className="flex flex-col gap-5">
+              {platforms.map((pl) => (
+                <div key={pl.name} className="grid items-center gap-4" style={{ gridTemplateColumns: "96px 1fr 52px" }}>
+                  <div className="font-serif italic text-[18px]" style={{ color: "var(--fg)" }}>{pl.name}</div>
+                  <div className="pbar relative h-[2px]" style={{ background: "var(--line-mid)", ["--w" as string]: pl.w }} />
+                  <div className="font-mono text-[11px] text-right" style={{ color: "var(--fg-dim)" }}>{pl.v}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div
+            className="reveal delay-1 p-7 flex flex-col justify-between"
+            style={{ background: "var(--accent)", border: "1px solid var(--accent)" }}
+          >
+            <div className="font-mono text-[11px] tracking-[.18em] uppercase mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
+              Key Insight
+            </div>
+            <p className="text-[15px] leading-[1.65] m-0" style={{ color: "#fff" }}>
+              Over 81% of the audience falls in the <strong>25–44 age bracket</strong>. The UK and Nigeria together account for over <strong>80% of viewers</strong> — news-anchored and culturally relevant content consistently outperformed standalone advice formats.
             </p>
           </div>
         </div>
