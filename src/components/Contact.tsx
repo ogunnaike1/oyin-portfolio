@@ -5,7 +5,6 @@ const socials = [
   { label: "Twitter",    href: "https://x.com/zabeth__a" },
   { label: "WhatsApp",   href: "https://wa.me/2349025158865" },
   { label: "TikTok",     href: "https://www.tiktok.com/@zabeth___" },
-  { label: "YouTube",    href: "#" },
   { label: "LinkedIn",   href: "https://www.linkedin.com/in/oyindamola-amosu-8a894a353" },
 ];
 
