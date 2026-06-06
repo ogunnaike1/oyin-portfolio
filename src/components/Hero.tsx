@@ -33,11 +33,7 @@ export default function Hero() {
 
           {/* Headline */}
           <h1 className="m-0 font-serif font-light" style={{ fontSize: "clamp(40px,7vw,88px)", lineHeight: 1.05, letterSpacing: "-0.02em", color: "var(--fg)" }}>
-            Growing accounts,
-            <br />
-            <em style={{ color: "var(--accent)" }}>one month</em>
-            <br />
-            at a time.
+            About <em style={{ color: "var(--accent)" }}>me.</em>
           </h1>
 
           {/* Bio */}
