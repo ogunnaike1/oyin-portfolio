@@ -57,7 +57,7 @@ export default function Nav() {
               style={{ background: "var(--accent-2)" }}
             />
             <span className="not-italic font-mono text-[10px] tracking-[.18em] uppercase align-middle" style={{ color: "var(--fg-mute)" }}>
-              Studio
+         
             </span>
           </a>
 
