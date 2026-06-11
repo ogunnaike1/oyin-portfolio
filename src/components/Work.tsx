@@ -73,7 +73,7 @@ export default function Work() {
               className="flex items-center justify-between mb-4 pb-3"
               style={{ borderBottom: "1px solid var(--line-mid)" }}
             >
-              <span className="font-mono text-[12px] tracking-[.18em] uppercase font-medium" style={{ color: "var(--fg)" }}>Instagram Reels</span>
+              <span className="font-mono text-[12px] tracking-[.18em] uppercase font-medium" style={{ color: "var(--fg)" }}>YouTube</span>
               <span className="font-mono text-[11px] tracking-[.14em]" style={{ color: "var(--fg-mute)" }}>Feb – May 2026</span>
             </div>
             <table className="w-full text-[14px]" style={{ borderCollapse: "collapse" }}>
@@ -133,7 +133,7 @@ export default function Work() {
               </div>
               <div className="flex items-start justify-between gap-3 px-5 py-4">
                 <div>
-                  <p className="font-mono text-[11px] tracking-[.16em] uppercase m-0 mb-1" style={{ color: "var(--accent-2)" }}>TikTok Edit</p>
+                  <p className="font-mono text-[11px] tracking-[.16em] uppercase m-0 mb-1" style={{ color: "var(--accent-2)" }}>TikTok/Instagram Edit</p>
                   <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>Edited for pacing, cuts, and hooks.</p>
                 </div>
                 <span
@@ -153,7 +153,7 @@ export default function Work() {
                   <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
                   <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#febc2e" }} />
                   <span className="w-2.5 h-2.5 rounded-full" style={{ background: "#27c840" }} />
-                  <span className="ml-auto font-mono text-[10px] tracking-[.14em]" style={{ color: "rgba(255,255,255,0.3)" }}>Instagram Reel</span>
+                  <span className="ml-auto font-mono text-[10px] tracking-[.14em]" style={{ color: "rgba(255,255,255,0.3)" }}></span>
                 </div>
                 <video
                   src="https://res.cloudinary.com/dhmqhless/video/upload/q_auto,f_mp4/v1780782523/vid2_pvjhfg.mov"
@@ -166,8 +166,8 @@ export default function Work() {
               </div>
               <div className="flex items-start justify-between gap-3 px-5 py-4">
                 <div>
-                  <p className="font-mono text-[11px] tracking-[.16em] uppercase m-0 mb-1" style={{ color: "var(--accent-2)" }}>Instagram Edit</p>
-                  <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}>Edited for pacing, cuts, and hooks.</p>
+                  <p className="font-mono text-[11px] tracking-[.16em] uppercase m-0 mb-1" style={{ color: "var(--accent-2)" }}>YouTube intro</p>
+                  <p className="text-[13px] leading-[1.5] m-0" style={{ color: "var(--fg-dim)" }}></p>
                 </div>
                 <span
                   className="shrink-0 font-mono text-[10px] tracking-[.12em] uppercase px-2 py-1 mt-[2px]"
